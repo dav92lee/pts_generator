@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+    <title>FET: pts generator</title>
+  </head>
+  <body>
+      <h1>FET PTS Generator</h1>
+      <div id='img-container'>
+        <canvas id="myCanvas"></canvas>
+      </div>
+      <div id='nav-container'>
+        <div class='step-wrapper'>
+          <div class='step-header'> Step 1: Load File</div>
+          <div class='tool'>
+            <div class='tool-title'>Input File or Folder</div>
+            <input id='file-input' class='input-box'/>
+            <input id='file-input-submit' type='submit' value='confirm' class='button'/>
+          </div>
+        </div>
+        <div class='step-wrapper'>
+          <div class='step-header'> Step 2: Click Points</div>
+          <div class='tool'>
+            <div class='tool-title'>Points Viewer</div>
+            <ol id='pts-viewer-list'>
+            </ol>
+          </div>
+        </div>
+        <div class='step-wrapper'>
+          <div class='step-header'> Step 3: Create PTS File</div>
+          <div class='tool'>
+            <div class='tool-title'>FileName</div>
+            <input id='filename-input' class='input-box'/>
+          </div>
+          <input type='button' value='save' class='button' onclick='save_pts()'/>
+        </div>
+        <p> pt file saver </p>
+      </div>
+  </body>
+</html>

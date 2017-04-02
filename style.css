@@ -1,0 +1,79 @@
+body {
+    background-color: #353536;
+    padding: 40px;
+    font-weight: 100;
+    font-family: 'Helvetica'
+}
+h1 {
+    color: white;
+    font-size: 30;
+    letter-spacing: 1px;            
+}
+#img-container {
+  display:inline-block;
+  margin-right: 40;
+}
+.image {
+  background-color: black;
+  padding: 40px;
+}
+#nav-container {
+  display: inline-block;
+  vertical-align: top;
+}
+.step-wrapper {
+  margin-bottom: 30px;
+}
+.step-header {
+  font-size: 20px;
+  color: #9c9c9c;
+  margin-bottom: 14px;
+}
+.tool {
+  margin-bottom: 5px;
+}
+.tool-title {
+  font-size: 14px;
+  color: #575759;
+  display: inline-block;
+  padding: 1px 0;
+}
+.input-box {
+  border: 0;
+  background-color: #575759;
+  color: #9c9c9c;
+  margin-left: 10px;
+  outline: none;
+  height: 18px;
+}
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+}
+.button {
+  outline: 0;
+  display: inline-block;
+  color:white;
+  text-align: center;
+  background: #454545;
+  color: #9c9c9c;
+  border: 0;
+  cursor: pointer;
+}
+.button:hover {
+  color: white;
+}
+#pts-viewer-list {
+  padding-left: 15px;
+  font-size: 12;
+  margin: 0;
+  color: #9c9c9c;
+}
+.close-button {
+  margin-left: 10px;
+  color: #ff6666;
+  cursor: pointer;
+}
