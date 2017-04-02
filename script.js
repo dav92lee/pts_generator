@@ -57,10 +57,10 @@ $(function() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx.drawImage(imageObj, 0, 0);
 		ctx.fillStyle="#42f465";
-		ctx.font = "30px Arial";
+		ctx.font = "10px Arial";
 		for(var pt_i in pt_list){
 			var pt = pt_list[pt_i]
-			ctx.fillText(pt_i,pt[0],pt[1]);
+			ctx.fillText(pt_i,pt[0]+2,pt[1]);
 			ctx.fillRect(pt[0],pt[1],2,2);
 		}
 	}
