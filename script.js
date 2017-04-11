@@ -10,7 +10,7 @@ var save_pts = () => {
 	var data = `verson: 1
 n_points: ${pt_list.length}
 {
-${pt_list.map((pt) => {return pt[0] + ',' + pt[1]}).join('\r\n')}
+${pt_list.map((pt) => {return pt[0] + ' ' + pt[1]}).join('\r\n')}
 }
 `
 
@@ -39,7 +39,6 @@ $(function() {
 		$('#pts-viewer-list').html('')
 		for(var pt_i in pt_list){
 			let pt = pt_list[pt_i]
-			console.log('pt_i: '+pt_i)
 			let pt_div = $(`<li>${pt[0]},${pt[1]}<span ref="${pt_i}" class="close-button">x</span></li>`).click(remove_pt(pt_i))
 			$('#pts-viewer-list').append(pt_div)
 		}
@@ -58,17 +57,20 @@ $(function() {
 		ctx.drawImage(imageObj, 0, 0);
 		ctx.fillStyle="#42f465";
 		ctx.font = "10px Arial";
+		let showNumbers = $('#pt-viewer-show-number').is(":checked")
 		for(var pt_i in pt_list){
 			var pt = pt_list[pt_i]
-			ctx.fillText(pt_i,pt[0]+2,pt[1]);
+			if(showNumbers) {
+				ctx.fillText(parseInt(pt_i)+1,pt[0]+2,pt[1]);
+			}
 			ctx.fillRect(pt[0],pt[1],2,2);
 		}
 	}
 
 	imageObj.onload = () => {
-		pt_list = []
         ctx.canvas.height = imageObj.height;
         ctx.canvas.width = imageObj.width;
+        render_pts_viewer_list()
         draw()
 
         // wait 2 seconds, repeate same process
@@ -83,6 +85,7 @@ $(function() {
     $("#file-input-submit").click(() => {
         var file = $('#file-input').val();
         imageObj.src = file;
+        pt_list = []
     });
 
     $('#myCanvas').click(function(evt){
