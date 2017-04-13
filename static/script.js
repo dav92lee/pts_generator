@@ -67,6 +67,32 @@ $(function() {
 		}
 	}
 
+    var parse_pt_file = (file) => {
+        var rawFile = new XMLHttpRequest();
+        var pts = []
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function ()
+        {
+            if(rawFile.readyState === 4)
+            {
+                if(rawFile.status === 200 || rawFile.status == 0)
+                {
+                    var allText = rawFile.responseText;
+                    var rxp = /\{([^}]+)\}/;
+                    var data = allText.match(rxp)[0].split('\n')
+                    for (var pt of data) {
+                        if(pt != "{" && pt != "}") {
+                            var [x, y] = pt.split(' ')
+                            pts.push([parseInt(x), parseInt(y)])
+                        }
+                    }
+                }
+            }
+        }
+        rawFile.send(null);
+        return pts;
+    }
+
 	imageObj.onload = () => {
         ctx.canvas.height = imageObj.height;
         ctx.canvas.width = imageObj.width;
@@ -86,6 +112,14 @@ $(function() {
         var file = $('#file-input').val();
         imageObj.src = file;
         pt_list = []
+    });
+
+    $("#pts-input-submit").click(() => {
+        var file = $('#pts-input').val().toLowerCase();
+        imageObj.src = file.replace('.pts', '.png')
+        pt_list = parse_pt_file(file)
+        draw();
+        render_pts_viewer_list();
     });
 
     $('#myCanvas').click(function(evt){

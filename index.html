@@ -1,8 +1,8 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./static/style.css" />
+    <script src="./static/script.js"></script>
     <title>FET: pts generator</title>
   </head>
   <body>
@@ -14,9 +14,14 @@
         <div class='step-wrapper'>
           <div class='step-header'> Step 1: Load File</div>
           <div class='tool'>
-            <div class='tool-title'>Input File or Folder</div>
+            <div class='tool-title'>Reference Image</div>
             <input id='file-input' class='input-box'/>
             <input id='file-input-submit' type='submit' value='confirm' class='button'/>
+          </div>
+          <div class='tool'>
+            <div class='tool-title'>PTS File</div>
+            <input id='pts-input' class='input-box'/>
+            <input id='pts-input-submit' type='submit' value='confirm' class='button'/>
           </div>
         </div>
         <div class='step-wrapper'>
@@ -39,7 +44,6 @@
           </div>
           <input type='button' value='save' class='button' onclick='save_pts()'/>
         </div>
-        <p> pt file saver </p>
       </div>
   </body>
 </html>
